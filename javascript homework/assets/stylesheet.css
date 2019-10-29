@@ -1,0 +1,21 @@
+#title{
+    margin-top: 50px;
+    margin: 0 auto;
+    min-width: 500px;
+}
+
+#main{
+    margin: 0 auto;
+    min-width: 500px;
+}
+
+#pw{
+    height: 100px;
+    border-style: dashed;
+    border-color: darkgrey;
+    border-width: 2px ;
+}
+
+#buttons{
+    justify-content: space-around;
+}

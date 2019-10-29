@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>js homework</title>
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/stylesheet.css">
+
+</head>
+
+<body>
+    <div id="title" class="text-center w-50 p-3">
+        <h1>Password Generator</h1>
+    </div>
+    <div id="main" class="card text-center w-50 p-3">
+
+        <div class="card-body">
+            <h5 class="card-title text-left">Generate a Password</h5>
+            <p id="pw" class="card-text rounded">your secure password</p>
+            <div class="d-flex" id="buttons">
+                <button onclick="passLength()" class="btn btn-danger">Generate Password</button>
+                <button onclick="myFunction()" class="btn btn-secondary">Copy to Clipboard</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+
+        // workshopping
+
+
+
+
+
+
+
+        var letters = "abcdefghijklmnopqrstuvwxyz ";
+        var numbers = "0123456789 ";
+        var specChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
+        var finalPassword = "";
+        var pwdQualities = {
+        passwordLength: 0,
+        pwdLower: true,
+        pwdUpper: true,
+        pwdSpec: true,
+        pwdNum: true,
+    }
+
+        // START!
+
+        // var special = confirm("Do you want special characters?")
+        // var numeric = confirm("Do you want numeric characters?")
+        // var lowercase = confirm("Do you want lowercase characters?")
+        // var uppercase = confirm("Do you want uppercase characters?")
+
+        // NUMBER OF CHARACTERS
+        function passLength() {
+            var pwdLength = parseInt(prompt("How many characters would you like your password to have? (8-128)"));
+
+            if (pwdLength > 7 && pwdLength < 129) {
+                alert("Your number (" + pwdLength + ") matches requirements");
+                pwdQualities.passwordLength = pwdLength;
+                console.log("password length = " + pwdQualities.passwordLength);
+
+            }
+            else if (isNaN(pwdLength)) {
+                alert("It is not a number. Please enter a number from 8 to 128");
+                passLength()
+            }
+            else {
+                alert("Your number (" + pwdLength + ") is not a valid number. Please enter a number from 8 to 128");
+                passLength()
+            }
+
+        }
+
+        // CHARACTER PICKERS
+        function genLetter() {
+            var n = letters.length,
+                letter = "";
+            letter = letters.charAt(Math.floor(Math.random() * n));
+            console.log(letter)
+            return letter;
+        }
+
+        function genNumber() {
+            var n = numbers.length,
+                number = "";
+            number = numbers.charAt(Math.floor(Math.random() * n));
+            console.log(number)
+            return number;
+        }
+
+        function genSpecial() {
+            var n = specChar.length,
+                character = "";
+            character = specChar.charAt(Math.floor(Math.random() * n));
+            console.log(character)
+            return character;
+        }
+
+
+
+
+        // Trouble starts here
+        // passLength()
+        
+
+        // var cycle = [genLetter(), genNumber(), genSpecial()]
+        // var numberCycle = [genLetter(), genNumber()]
+
+
+        // if (numeric == true) {
+
+        //     var complete = ""
+        //     for (var i = 0, n = numbercycle.length; i < pwdQualities.passwordLength; ++i) {
+        //         complete += numberCycle[(Math.floor(Math.random()) * n)]
+
+        //         finalPassword = complete
+
+        //     }
+
+        // }
+
+
+
+
+       
+        console.log(finalPassword)
+
+
+
+        function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("pw");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+
+
+
+
+        // alert("password is " + password)
+
+
+
+
+        // workshopping
+
+
+//         function generatePassword() {
+//     var length = 8,
+//         charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+//         retVal = "";
+//     for (var i = 0, n = charset.length; i < length; ++i) {
+//         retVal += charset.charAt(Math.floor(Math.random() * n));
+//     }
+//     return retVal;
+// }
+
+
+
+
+
+// var specChar = ['\u0021','\u0022','\u0023','\u0024','\u0025','\u0026','\u0027','\u0028','\u0029','\u002A','\u002B','\u002C','\u002D','\u002E','\u002F','\u003A','\u003B' ]
+
+    </script>
+
+
+
+</body>
+
+</html>
