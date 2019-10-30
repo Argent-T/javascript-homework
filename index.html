@@ -41,22 +41,22 @@
 
 
 
-        var letters = "abcdefghijklmnopqrstuvwxyz ";
-        var numbers = "0123456789 ";
-        var specChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~ ";
+        var letters = "abcdefghijklmnopqrstuvwxyz";
+        var numbers = "0123456789";
+        var specChar = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~";
         var finalPassword = "";
         var pwdQualities = {
-        passwordLength: 0,
-        pwdLower: true,
-        pwdUpper: true,
-        pwdSpec: true,
-        pwdNum: true,
-    }
+            passwordLength: 0,
+            pwdLower: true,
+            pwdUpper: true,
+            pwdSpec: true,
+            pwdNum: true,
+        }
 
         // START!
 
         // var special = confirm("Do you want special characters?")
-        // var numeric = confirm("Do you want numeric characters?")
+        // var pwdQualities.pwdNum = confirm("Do you want numeric characters?")
         // var lowercase = confirm("Do you want lowercase characters?")
         // var uppercase = confirm("Do you want uppercase characters?")
 
@@ -68,7 +68,6 @@
                 alert("Your number (" + pwdLength + ") matches requirements");
                 pwdQualities.passwordLength = pwdLength;
                 console.log("password length = " + pwdQualities.passwordLength);
-
             }
             else if (isNaN(pwdLength)) {
                 alert("It is not a number. Please enter a number from 8 to 128");
@@ -78,6 +77,46 @@
                 alert("Your number (" + pwdLength + ") is not a valid number. Please enter a number from 8 to 128");
                 passLength()
             }
+
+            if (pwdQualities.pwdLower == true && pwdQualities.pwdNum == true) {
+                var nUsed = false;
+                var lUsed = false;
+                var complete = "";
+                var letnum = ["j", "k"]
+                for (var i = 0, n = letters.length; i < pwdQualities.passwordLength; ++i) {
+
+                    switch (letnum[Math.floor(Math.random() * letnum.length)]){
+                        case "j":
+                            complete += genLetter()
+                            break;
+
+                        case "k":
+                            complete += genNumber()
+                            break;
+
+
+                    }
+
+                }
+                finalPassword = complete
+                console.log(finalPassword)
+            }
+
+            else {
+
+                var complete = ""
+                for (var i = 0, n = letters.length; i < pwdQualities.passwordLength; ++i) {
+                    complete += genLetter();
+
+
+
+                }
+                finalPassword = complete
+                console.log(finalPassword)
+            }
+
+
+
 
         }
 
@@ -111,46 +150,32 @@
 
         // Trouble starts here
         // passLength()
-        
-
-        // var cycle = [genLetter(), genNumber(), genSpecial()]
-        // var numberCycle = [genLetter(), genNumber()]
-
-
-        // if (numeric == true) {
-
-        //     var complete = ""
-        //     for (var i = 0, n = numbercycle.length; i < pwdQualities.passwordLength; ++i) {
-        //         complete += numberCycle[(Math.floor(Math.random()) * n)]
-
-        //         finalPassword = complete
-
-        //     }
-
-        // }
 
 
 
 
-       
+
+
+
+
         console.log(finalPassword)
 
 
 
         function myFunction() {
-  /* Get the text field */
-  var copyText = document.getElementById("pw");
+            /* Get the text field */
+            var copyText = document.getElementById("pw");
 
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+            /* Select the text field */
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); /*For mobile devices*/
 
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
+            /* Copy the text inside the text field */
+            document.execCommand("copy");
 
-  /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
-}
+            /* Alert the copied text */
+            alert("Copied the text: " + copyText.value);
+        }
 
 
 
